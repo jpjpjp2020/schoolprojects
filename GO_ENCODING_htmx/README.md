@@ -2,6 +2,8 @@
 
 Go encoding/decoding and SSR with HTMX.
 
+### Click-through video:
+
 [![Click-through video](https://img.youtube.com/vi/KhfJnG4f_H4/0.jpg)](https://www.youtube.com/watch?v=KhfJnG4f_H4)
 
 

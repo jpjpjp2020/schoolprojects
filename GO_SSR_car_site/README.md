@@ -2,6 +2,8 @@
 
 Using a limited set of cars provide in a test API. The main goal was to smooth out the missing asynchronous front-end layer as much as possible - which would be used under normal constraints.
 
+### Click-through video:
+
 [![Click-through video](https://img.youtube.com/vi/db6RcIiLt7k/0.jpg)](https://www.youtube.com/watch?v=db6RcIiLt7k)
 
 

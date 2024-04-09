@@ -2,6 +2,8 @@
 
 BFS algorithm usage to move trains through maps with predetermined max. number of moves + detailed log mode.
 
+### Click-through video:
+
 [![Click-through video](https://img.youtube.com/vi/MLnwvOu_-Rk/0.jpg)](https://www.youtube.com/watch?v=MLnwvOu_-Rk)
 
 
