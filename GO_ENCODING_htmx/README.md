@@ -1,4 +1,4 @@
-## **Art encoder-decoder with Go SSR and some HTMX and std Go packages only
+## Art encoder-decoder with Go SSR and some HTMX and std Go packages only
 
 Go encoding/decoding and SSR with HTMX.
 
