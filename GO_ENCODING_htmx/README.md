@@ -1,8 +1,9 @@
-## **Art encoder-decoder frontend:
+## **Art encoder-decoder with Go SSR and some HTMX and std Go packages only
 
-![Figma mockup](mdpics/figma.png)
+Go encoding/decoding and SSR with HTMX.
 
-[Click-through video >>](https://youtu.be/KhfJnG4f_H4?si=UuVe7s3ffnkcpmv4)
+[![Click-through video](https://img.youtube.com/vi/KhfJnG4f_H4/0.jpg)](https://www.youtube.com/watch?v=KhfJnG4f_H4)
+
 
 ### Starting, running, and using the web interface:
 - Clone the repo & run go run the following command in terminal:

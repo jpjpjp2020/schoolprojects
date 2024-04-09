@@ -1,8 +1,8 @@
-## Cars stats website
+## Go SSR-only / std packages only cars stats website
 
-![Page example](readmepic/example.png)
+Using a limited set of cars provide in a test API. The main goal was to smooth out the missing asynchronous front-end layer as much as possible - which would be used under normal constraints.
 
-[Click-through video >>](https://www.youtube.com/watch?v=db6RcIiLt7k)
+[![Click-through video](https://img.youtube.com/vi/db6RcIiLt7k/0.jpg)](https://www.youtube.com/watch?v=db6RcIiLt7k)
 
 
 ### Usage
@@ -120,7 +120,7 @@
     ```
 
 - IRL would likely optimize searches with more custom API endpoints, but here used the API "as is", thus loaded all cars to a model and used the model when and where needed.
-- For serach sidebar feature needed to use a copy of the car model with 1 extra field, due to SSR. To preserve user's search results with redirects and due to cars being renderd in templates with range codeblock, needed to access current url query in the car model range for the "add to comparison" button" I just added the query return value {{.ReturnPath}} to the copy of the car model, so it would be accessible.
+- For search sidebar feature needed to use a copy of the car model with 1 extra field, due to SSR. To preserve user's search results with redirects and due to cars being renderd in templates with range codeblock, needed to access current url query in the car model range for the "add to comparison" button" I just added the query return value {{.ReturnPath}} to the copy of the car model, so it would be accessible.
 
     ```html
 
@@ -190,4 +190,4 @@
 
     ```
 
-- Design + code logic: Did not deliberately stop a user from comparing a car vs itself or not running compare action or opening the compare page wit 1 car only - User can compare a car vs itself and also open the comparison page with no car or 1 car only chosen - This is s because this edge case does not brake anything and if a user wants to be weird, there is no reason to spend time and resources to stop them from doing so IRL if it does not affect the business logic of the project.
+- Design + code logic: Did not deliberately stop a user from comparing a car vs itself or not running compare action or opening the compare page with 1 car only - User can compare a car vs itself and also open the comparison page with no car or 1 car only chosen - This is s because this edge case does not brake anything and if a user wants to be weird, there is no reason to spend time and resources to stop them from doing so IRL if it does not affect the business logic of the project.
