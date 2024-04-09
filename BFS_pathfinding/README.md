@@ -1,6 +1,12 @@
 ## Stations Patfinder
 
+BFS algorithm usage to move trains through maps with predetermined max. number of moves.
+
 [Click-through video >>](https://www.youtube.com/watch?v=MLnwvOu_-Rk)
+
+![Click-through video](https://www.youtube.com/watch?v=MLnwvOu_-Rk)
+
+
 
 ### Usage:
 
@@ -27,93 +33,6 @@
     brew install graphviz
     ```
 - NB: With very large maps the output logging may be very long - to allow checking and monitoring the process throughout the callstack and different helper functions.
-
-### Test cases for review:
-
-- It completes the movements in no more than 6 turns for 4 trains between bond_square and space_port:
-
-    ```go
-    go run . ./map.txt bond_square space_port 4
-    // or
-    go run . ./map.txt bond_square space_port 4 log
-    ```
-- It displays "Error" on stderr when a map contains more than 10000 stations:
-
-    ```go
-    go run . ./maplarge.txt 1 2 5
-    // or
-    go run . ./maplarge.txt 1 2 5 log
-    ```
-- It finds more than one valid route for 100 trains between waterloo and st_pancras in the London Network Map:
-
-    ```go
-    go run . ./map5.txt waterloo st_pancras 100
-    // or
-    go run . ./map5.txt waterloo st_pancras 100 log
-    ```
-- It completes the movements in no more than 6 turns for 9 trains between beethoven and part:
-
-    ```go
-    go run . ./map6.txt beethoven part 9
-    // or
-    go run . ./map6.txt beethoven part 9 log
-    ```
-- It completes the movements in no more than 11 turns for 20 trains between beginning and terminus:
-
-    ```go
-    go run . ./map7.txt beginning terminus 20
-    // or
-    go run . ./map7.txt beginning terminus 20 log
-    ```
-- It completes the movements in no more than 6 turns for 4 trains between two and four:
-
-    ```go
-    go run . ./mapnumbers.txt two four 4
-    // or
-    go run . ./mapnumbers.txt two four 4 log
-    ```
-- It can find more than one route for 2 trains between waterloo and st_pancras for the London Network Map:
-
-    ```go
-    go run . ./map5.txt waterloo st_pancras 2
-    // or
-    go run . ./map5.txt waterloo st_pancras 2 log
-    ```
-- It finds more than one valid route for 3 trains between waterloo and st_pancras in the London Network Map:
-
-    ```go
-    go run . ./map5.txt waterloo st_pancras 3
-    // or
-    go run . ./map5.txt waterloo st_pancras 3 log
-    ```
-- It finds more than one valid route for 4 trains between waterloo and st_pancras in the London Network Map:
-
-    ```go
-    go run . ./map5.txt waterloo st_pancras 4
-    // or
-    go run . ./map5.txt waterloo st_pancras 4 log
-    ```
-- It finds only a single valid route for 1 train between waterloo and st_pancras in the London Network Map:
-
-    ```go
-    go run . ./map5.txt waterloo st_pancras 1
-    // or
-    go run . ./map5.txt waterloo st_pancras 1 log
-    ```
-- It completes the movements in no more than 8 turns for 10 trains between jungle and desert:
-
-    ```go
-    go run . ./map2.txt jungle desert 10
-    // or
-    go run . ./map2.txt jungle desert 10 log
-    ```
-- It completes the movements in no more than 8 turns for 9 trains between small and large:
-
-    ```go
-    go run . ./map3.txt small large 9
-    // or
-    go run . ./map3.txt small large 9 log
-    ```
 
 ### Design logic:
 
@@ -206,3 +125,90 @@
 - Stations is read into a map with station name as a key and station struct as a value - futureproofing efficiently, as can just expand the struct if need more values for a station (like coordinates, pos future airport connections, capacity etc).
 - Connections will go into a bool map (mimicking a set) - because connectios either exist or not and easier to also check for uniqueness as a-b == b-a connection.
 - Connections from raw data to maps will use : instead of - for readability and clear signal of which data is used (debugging etc). Also better for differentiation for names with _ where connections with - would be kind of hard to follow in debugging prints.
+
+### Test cases for review/audit:
+
+- It completes the movements in no more than 6 turns for 4 trains between bond_square and space_port:
+
+    ```go
+    go run . ./map.txt bond_square space_port 4
+    // or
+    go run . ./map.txt bond_square space_port 4 log
+    ```
+- It displays "Error" on stderr when a map contains more than 10000 stations:
+
+    ```go
+    go run . ./maplarge.txt 1 2 5
+    // or
+    go run . ./maplarge.txt 1 2 5 log
+    ```
+- It finds more than one valid route for 100 trains between waterloo and st_pancras in the London Network Map:
+
+    ```go
+    go run . ./map5.txt waterloo st_pancras 100
+    // or
+    go run . ./map5.txt waterloo st_pancras 100 log
+    ```
+- It completes the movements in no more than 6 turns for 9 trains between beethoven and part:
+
+    ```go
+    go run . ./map6.txt beethoven part 9
+    // or
+    go run . ./map6.txt beethoven part 9 log
+    ```
+- It completes the movements in no more than 11 turns for 20 trains between beginning and terminus:
+
+    ```go
+    go run . ./map7.txt beginning terminus 20
+    // or
+    go run . ./map7.txt beginning terminus 20 log
+    ```
+- It completes the movements in no more than 6 turns for 4 trains between two and four:
+
+    ```go
+    go run . ./mapnumbers.txt two four 4
+    // or
+    go run . ./mapnumbers.txt two four 4 log
+    ```
+- It can find more than one route for 2 trains between waterloo and st_pancras for the London Network Map:
+
+    ```go
+    go run . ./map5.txt waterloo st_pancras 2
+    // or
+    go run . ./map5.txt waterloo st_pancras 2 log
+    ```
+- It finds more than one valid route for 3 trains between waterloo and st_pancras in the London Network Map:
+
+    ```go
+    go run . ./map5.txt waterloo st_pancras 3
+    // or
+    go run . ./map5.txt waterloo st_pancras 3 log
+    ```
+- It finds more than one valid route for 4 trains between waterloo and st_pancras in the London Network Map:
+
+    ```go
+    go run . ./map5.txt waterloo st_pancras 4
+    // or
+    go run . ./map5.txt waterloo st_pancras 4 log
+    ```
+- It finds only a single valid route for 1 train between waterloo and st_pancras in the London Network Map:
+
+    ```go
+    go run . ./map5.txt waterloo st_pancras 1
+    // or
+    go run . ./map5.txt waterloo st_pancras 1 log
+    ```
+- It completes the movements in no more than 8 turns for 10 trains between jungle and desert:
+
+    ```go
+    go run . ./map2.txt jungle desert 10
+    // or
+    go run . ./map2.txt jungle desert 10 log
+    ```
+- It completes the movements in no more than 8 turns for 9 trains between small and large:
+
+    ```go
+    go run . ./map3.txt small large 9
+    // or
+    go run . ./map3.txt small large 9 log
+    ```
