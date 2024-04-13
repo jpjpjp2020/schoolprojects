@@ -48,7 +48,7 @@ Using a limited set of cars provide in a test API. The main goal was to smooth o
 
 - Used a channel with goroutines to run the serach for cars in teh sidebar search. With 10 cars in the API, it is an overkill, but a good place to use channels and goroutines if this would be a real life car sales page, etc.
 
-- Interestingly, as searchbar has 8 "decoupled" serach categories, there was an opportunity to track how many searches actually run in the channel and then compare the count of searches vs some care appearing in the searches. If the search count and result count for some car matches, then the car is the one we are looking for - kind of an anonymous serach where context does not matter. Would not probably scale really well, but kept that logic, as it just is interestng and works.
+- Interestingly, as searchbar has 8 "decoupled" search categories, there was an opportunity to track how many searches actually run in the channel and then compare the count of searches vs some care appearing in the searches. If the search count and result count for some car matches, then the car is the one we are looking for - kind of an anonymous search where context does not matter. Would not probably scale really well, but kept that logic, as it just is interestng and works.
 
 
 
@@ -176,7 +176,7 @@ Using a limited set of cars provide in a test API. The main goal was to smooth o
 
 - Kept text styles minimal and deliberately used std balck font for actual car previews and car details - IRL thes would or could be the main sales items or added by platform users, so these have to pop out more and not be smootly hidden among the general page design. To balanc this, did lighten the comparison page a lot by text and table design.
 
-- For the car preview grid, I used placeholder divs to enforce and make the ggird really robust. IRL and with more cars it would also need paggination to only load a certain number of cars, but here the placeholder divs make sure that the grid columns do not start taking up more space when only 1 row worth of cars is found (less than 4 cars). Adding 6 placeholder divs means that there is always at least 3 rows of "results" which maintains the grid well (1 car found + 6  divs = 3 columns and 3 rows | 3 cars found + 6 divs also = 3 columns and 3 rows).
+- For the car preview grid, I used placeholder divs to enforce and make the grid really robust. IRL and with more cars it would also need paggination to only load a certain number of cars, but here the placeholder divs make sure that the grid columns do not start taking up more space when only 1 row worth of cars is found (less than 4 cars). Adding 6 placeholder divs means that there is always at least 3 rows of "results" which maintains the grid well (1 car found + 6  divs = 3 columns and 3 rows | 3 cars found + 6 divs also = 3 columns and 3 rows).
 
     ```html
 
