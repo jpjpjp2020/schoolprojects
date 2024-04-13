@@ -1,6 +1,7 @@
 ## Art encoder-decoder with Go SSR and some HTMX and std Go packages only
 
 Go encoding/decoding and SSR with HTMX.
+*No code in repo, as pushing code itself to public repos is not allowed by school policies.
 
 ### Click-through video:
 

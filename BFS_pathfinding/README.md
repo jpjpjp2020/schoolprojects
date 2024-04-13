@@ -1,6 +1,7 @@
 ## Stations Patfinder with BFS algo and std Go packages only
 
 BFS algorithm usage to move trains through maps with predetermined max. number of moves + detailed log mode.
+*No code in repo, as pushing code itself to public repos is not allowed by school policies.
 
 ### Click-through video:
 

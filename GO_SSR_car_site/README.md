@@ -1,6 +1,7 @@
 ## Go SSR-only / std packages only cars stats website
 
 Using a limited set of cars provide in a test API. The main goal was to smooth out the missing asynchronous front-end layer as much as possible - which would be used under normal constraints.
+*No code in repo, as pushing code itself to public repos is not allowed by school policies.
 
 ### Click-through video:
 
